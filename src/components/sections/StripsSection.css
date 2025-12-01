@@ -1,0 +1,581 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+/* Strips Section */
+.strips_section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #FFF6E9;
+  padding: 100px 60px;
+  overflow: hidden;
+}
+
+.strips_container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Gallery Grid - 4 columns × 3 rows */
+.strips_gallery_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 267.5px);
+  gap: 20px;
+  position: relative;
+  justify-content: center;
+}
+
+/* Photo Strip Base - All same size */
+.photo_strip {
+  position: relative;
+  background: #fff;
+  border-radius: 0;
+  overflow: visible; /* Changed to visible to allow decorative images to show */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  opacity: 0;
+  animation: strips_photo_appear 0.8s ease-out forwards;
+  width: 267.5px;
+  height: 431px;
+  z-index: 1;
+}
+
+.photo_strip:nth-child(1) { animation-delay: 0.1s; }
+.photo_strip:nth-child(3) { animation-delay: 0.2s; }
+.photo_strip:nth-child(4) { animation-delay: 0.3s; }
+.photo_strip:nth-child(5) { animation-delay: 0.4s; }
+.photo_strip:nth-child(6) { animation-delay: 0.5s; }
+.photo_strip:nth-child(8) { animation-delay: 0.6s; }
+.photo_strip:nth-child(9) { animation-delay: 0.7s; }
+.photo_strip:nth-child(11) { animation-delay: 0.8s; }
+.photo_strip:nth-child(12) { animation-delay: 0.9s; }
+
+@keyframes strips_photo_appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Photo - Grayscale/Color Hover Effect */
+.strip_photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* Alternate grayscale pattern */
+.strip_1 .strip_photo,
+.strip_3 .strip_photo,
+.strip_5 .strip_photo,
+.strip_7 .strip_photo,
+.strip_9 .strip_photo {
+  filter: grayscale(100%);
+}
+
+.strip_2 .strip_photo,
+.strip_4 .strip_photo,
+.strip_6 .strip_photo,
+.strip_8 .strip_photo {
+  filter: grayscale(0%);
+}
+
+/* Hover effect - Toggle between grayscale and color */
+.strip_1:hover .strip_photo,
+.strip_3:hover .strip_photo,
+.strip_5:hover .strip_photo,
+.strip_7:hover .strip_photo,
+.strip_9:hover .strip_photo {
+  filter: grayscale(0%);
+}
+
+.strip_2:hover .strip_photo,
+.strip_4:hover .strip_photo,
+.strip_6:hover .strip_photo,
+.strip_8:hover .strip_photo {
+  filter: grayscale(100%);
+}
+
+/* Text Box Base - Same size as photos */
+.text_box {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+  width: 267.5px;
+  height: 431px;
+  opacity: 0;
+  animation: strips_photo_appear 0.8s ease-out forwards;
+}
+
+.text_box:nth-child(2) { animation-delay: 0.15s; }
+.text_box:nth-child(7) { animation-delay: 0.55s; }
+.text_box:nth-child(10) { animation-delay: 0.75s; }
+
+/* Strips Header - Row 1, Column 2 */
+.strips_header {
+  justify-content: center;
+  gap: 20px;
+}
+
+.strips_title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 100%;
+  color: #D01A31;
+  margin: 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.strips_arrow_decor {
+  width: 148px;
+  height: 128px;
+  transform: rotate(0deg);
+  opacity: 1;
+  object-fit: contain;
+  position: relative;
+  z-index: 10;
+}
+
+/* Image Swap Animation - Like Loading Page */
+.image_swap {
+  animation-delay: 300ms;
+  animation-duration: 0ms;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Tagline Box - Row 2, Column 3 */
+.strip_tagline_box {
+  justify-content: flex-end; /* Align content to bottom */
+  align-items: flex-start; /* Left align */
+  padding: 20px;
+  padding-top: 0; /* No padding at top */
+  position: relative;
+}
+
+.strip_tagline {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #000000; /* Black text color */
+  text-align: left; /* Left align text */
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+
+.instant_word {
+  position: relative;
+  display: inline-block;
+}
+
+.instant_circle {
+  position: absolute;
+  bottom: -15px; /* Position below "Instant" */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 176px;
+  height: 76px;
+  border-radius: 0;
+  object-fit: contain;
+  box-sizing: border-box;
+}
+
+.strip_tagline br {
+  display: block;
+  content: "";
+  margin: 0;
+}
+
+.zero_drama {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* Bottom Text - Row 3, Column 2 */
+.strips_bottom_text {
+  justify-content: flex-end; /* Align content to bottom */
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  padding-bottom: 20px; /* Add padding at bottom */
+}
+
+.timeless_text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #D01A31;
+  margin: 0;
+  text-align: center;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center; /* Center align items in same row */
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  white-space: nowrap; /* Keep all items in same row */
+}
+
+.timeless_markatEnd {
+  display: inline-block;
+  width: auto;
+  height: 40px;
+  vertical-align: middle;
+  object-fit: contain;
+  margin-left: 8px;
+}
+
+/* Decorative Images - Positioned relative to photo strips */
+
+/* Star on strip_6 (second row last image) - right side top */
+.strip_6_star {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 78px;
+  height: 99px;
+  transform: rotate(0deg);
+  opacity: 1;
+  object-fit: contain;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Grass on strip_5 (second row, second image) - at top */
+.strip_5_grass {
+  position: absolute;
+  top: -90px;
+  left: 18%;
+  transform: translateX(-50%) rotate(0deg);
+  width: 148px;
+  height: 128px;
+  opacity: 1;
+  object-fit: contain;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* FullGrass on strip_7 (third row first image) - top */
+.strip_7_fullGrass {
+  position: absolute;
+  top: -40px;
+  left: -50px;
+  width: 100px;
+  height: 101px;
+  transform: rotate(0deg);
+  opacity: 1;
+  object-fit: contain;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Heart on strip_8 (third row, second-to-last image) - bottom right */
+.strip_8_heart {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 139px;
+  height: 105px;
+  transform: rotate(0deg);
+  opacity: 1;
+  object-fit: contain;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .strips_gallery_grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .photo_strip,
+  .text_box {
+    width: 100%;
+    height: 400px;
+  }
+
+  .strips_title {
+    font-size: 42px;
+  }
+
+  .strips_arrow_decor {
+    width: 120px;
+    height: 104px;
+  }
+
+  .strip_6_star {
+    width: 62px;
+    height: 79px;
+    top: -20px;
+    right: -20px;
+  }
+
+  .instant_circle {
+    bottom: -12px;
+  }
+
+  .strip_5_grass {
+    width: 118px;
+    height: 102px;
+    top: -56px;
+    left: 18%;
+  }
+
+  .strip_7_fullGrass {
+    width: 80px;
+    height: 81px;
+    top: -35px;
+    left: -40px;
+  }
+
+  .strip_8_heart {
+    width: 111px;
+    height: 84px;
+    bottom: -25px;
+    right: -25px;
+  }
+
+  .timeless_markatEnd {
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .strips_section {
+    padding: 80px 40px;
+  }
+
+  .strips_title {
+    font-size: 36px;
+  }
+
+  .photo_strip,
+  .text_box {
+    height: 350px;
+  }
+
+  .strip_tagline {
+    font-size: 32px;
+    line-height: 100%;
+  }
+
+  .instant_circle {
+    width: 140px;
+    height: 60px;
+    bottom: -12px;
+  }
+
+  .timeless_text {
+    font-size: 28px;
+  }
+
+  .strips_arrow_decor {
+    width: 100px;
+    height: 87px;
+  }
+
+  .strip_6_star {
+    width: 52px;
+    height: 66px;
+    top: -15px;
+    right: -15px;
+  }
+
+  .strip_5_grass {
+    width: 100px;
+    height: 87px;
+    top: -45px;
+    left: 18%;
+  }
+
+  .strip_7_fullGrass {
+    left: -35px;
+  }
+
+
+  .strip_8_heart {
+    width: 93px;
+    height: 70px;
+    bottom: -20px;
+    right: -20px;
+  }
+
+  .timeless_markatEnd {
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .strips_section {
+    padding: 60px 20px;
+  }
+
+  .strips_gallery_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .strips_title {
+    font-size: 32px;
+  }
+
+  .photo_strip,
+  .text_box {
+    height: 320px;
+  }
+
+  .strip_tagline {
+    font-size: 28px;
+    line-height: 100%;
+  }
+
+  .instant_circle {
+    width: 120px;
+    height: 52px;
+    bottom: -10px;
+  }
+
+  .strip_5_grass {
+    width: 80px;
+    height: 69px;
+    top: -34px;
+    left: 18%;
+  }
+
+  .strip_7_fullGrass {
+    width: 60px;
+    height: 61px;
+    top: -25px;
+    left: -30px;
+  }
+
+  .timeless_text {
+    font-size: 24px;
+  }
+
+  .strips_arrow_decor {
+    width: 80px;
+    height: 69px;
+  }
+
+  .strip_6_star {
+    width: 42px;
+    height: 53px;
+    top: -12px;
+    right: -12px;
+  }
+
+  .strip_8_heart {
+    width: 75px;
+    height: 57px;
+    bottom: -15px;
+    right: -15px;
+  }
+
+  .timeless_markatEnd {
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .strips_gallery_grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .strips_title {
+    font-size: 28px;
+  }
+
+  .photo_strip,
+  .text_box {
+    height: 350px;
+  }
+
+  .strip_tagline {
+    font-size: 24px;
+    line-height: 100%;
+  }
+
+  .instant_circle {
+    width: 100px;
+    height: 43px;
+    bottom: -9px;
+  }
+
+  .strip_5_grass {
+    width: 60px;
+    height: 52px;
+    top: -27px;
+    left: 18%;
+  }
+
+  .strip_7_fullGrass {
+    width: 50px;
+    height: 51px;
+    top: -20px;
+    left: -25px;
+  }
+
+  .timeless_text {
+    font-size: 20px;
+  }
+
+  .strips_arrow_decor {
+    width: 60px;
+    height: 52px;
+  }
+
+  .strip_6_star {
+    width: 32px;
+    height: 40px;
+    top: -10px;
+    right: -10px;
+  }
+
+  .strip_8_heart {
+    width: 56px;
+    height: 42px;
+    bottom: -12px;
+    right: -12px;
+  }
+
+  .timeless_markatEnd {
+    height: 20px;
+  }
+}
+
+/* Prevent layout shift */
+* {
+  box-sizing: border-box;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

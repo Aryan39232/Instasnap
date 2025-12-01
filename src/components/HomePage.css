@@ -1,0 +1,18 @@
+/* .home_page_container {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 769px) {
+  .home_page_container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  .home_page_container > section {
+    scroll-snap-align: start;
+  }
+} */
