@@ -1,43 +1,112 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 
 /* Capture Section */
 .capture_section {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 1. Background Image Container */
+.capture_image_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.capture_image_wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.capture_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.capture_image_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* 2. Curtain Layers */
+.capture_curtain_left,
+.capture_curtain_right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  z-index: 3;
+}
+
+.capture_curtain_left {
+  left: 0;
+}
+
+.capture_curtain_right {
+  right: 0;
+}
+
+.capture_curtain_red_left,
+.capture_curtain_red_right {
+  width: 50%;
+  height: 100%;
   background: #D01A31;
+}
+
+.capture_curtain_dark_left,
+.capture_curtain_dark_right {
+  width: 50%;
+  height: 100%;
+  background: #000000;
+}
+
+/* 3. Typography Container */
+.capture_typography_container {
+  position: relative;
+  z-index: 4;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 80px 60px;
-  overflow: hidden;
 }
 
-.capture_container {
+.capture_typography_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.capture_text_line {
   width: 100%;
-  max-width: 100%;
   position: relative;
 }
 
-.capture_content_wrapper {
-  position: relative;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: capture_fade_in 1s ease-out 0.2s forwards;
-}
+/* Dynamic Text Styles Based on Background Position */
 
-@keyframes capture_fade_in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Capture Title - Large Bold Text */
-.capture_title {
+/* Text on Red Background (50%+ on red) - Poppins Black */
+.capture_text_on_red {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
+  font-style: normal;
   font-size: 190px;
   line-height: 100%;
   letter-spacing: 0%;
@@ -46,131 +115,185 @@
   color: #EBDAC2;
   margin: 0;
   padding: 0;
-  text-align: left;
+  transition: font-family 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-weight 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-style 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              color 1.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-/* Subtitle - Vertical Text on Right */
-.capture_subtitle {
-  font-family: 'Poppins', sans-serif;
+/* Text on Dark/Image Background (less than 50% on red) - Lora Italic */
+.capture_text_on_dark {
+  font-family: 'Lora', serif;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 1.2;
+  font-style: italic;
+  font-size: 190px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
   color: #EBDAC2;
   margin: 0;
+  padding: 0;
+  transition: font-family 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-weight 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-style 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              color 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Text on Image (when curtains are open) - Lora Italic with Red color */
+.capture_text_on_image {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 190px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #D01A31; /* Red color on image */
+  margin: 0;
+  padding: 0;
+  transition: font-family 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-weight 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-style 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              color 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.capture_title_line {
+  /* Base styles applied via classes above */
+}
+
+.capture_the_word {
+  display: inline-block;
+}
+
+.capture_the_accent {
+  /* Add any accent styling here if needed */
+}
+
+/* 4. Metadata Container */
+.capture_metadata_container {
   position: absolute;
   right: 60px;
   top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  transform-origin: center;
-  white-space: nowrap;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
-/* Description - Bottom Right */
-.capture_description {
-  font-family: 'Poppins', sans-serif;
+.capture_metadata_top,
+.capture_metadata_bottom {
+  display: block;
+  transition: font-family 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-weight 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              font-style 1.2s cubic-bezier(0.76, 0, 0.24, 1),
+              color 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Metadata when curtains are OPEN - on image */
+.capture_metadata_container.capture_text_on_image .capture_metadata_top,
+.capture_metadata_container.capture_text_on_image .capture_metadata_bottom {
+  font-family: 'Lora', serif;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.2;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+  color: #D01A31; /* Red color on image */
+}
+
+/* Metadata when curtains are CLOSED - on red (right side is red) */
+.capture_metadata_container.capture_text_on_red .capture_metadata_top,
+.capture_metadata_container.capture_text_on_red .capture_metadata_bottom {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
   color: #EBDAC2;
-  margin: 0;
-  position: absolute;
-  bottom: 60px;
-  right: 60px;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 1600px) {
-  .capture_title {
+  .capture_text_on_red,
+  .capture_text_on_dark,
+  .capture_text_on_image {
     font-size: 160px;
   }
 }
 
 @media screen and (max-width: 1400px) {
-  .capture_title {
+  .capture_text_on_red,
+  .capture_text_on_dark,
+  .capture_text_on_image {
     font-size: 140px;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .capture_section {
+  .capture_typography_container {
     padding: 60px 40px;
   }
 
-  .capture_title {
+  .capture_text_on_red,
+  .capture_text_on_dark,
+  .capture_text_on_image {
     font-size: 120px;
   }
 
-  .capture_subtitle {
-    right: 40px;
-    font-size: 16px;
-  }
-
-  .capture_description {
-    bottom: 40px;
+  .capture_metadata_container {
     right: 40px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .capture_title {
+  .capture_text_on_red,
+  .capture_text_on_dark,
+  .capture_text_on_image {
     font-size: 100px;
   }
 
-  .capture_subtitle {
-    right: 30px;
-    font-size: 14px;
-  }
-
-  .capture_description {
-    bottom: 30px;
+  .capture_metadata_container {
     right: 30px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .capture_section {
+  .capture_typography_container {
     padding: 60px 20px;
-    align-items: flex-start;
   }
 
-  .capture_title {
+  .capture_text_on_red,
+  .capture_text_on_dark,
+  .capture_text_on_image {
     font-size: 64px;
     line-height: 100%;
   }
 
-  .capture_subtitle {
+  .capture_metadata_container {
     position: static;
     transform: none;
-    text-align: left;
     margin-top: 40px;
-    font-size: 14px;
-  }
-
-  .capture_description {
-    position: static;
-    text-align: left;
-    margin-top: 20px;
-    font-size: 14px;
+    align-items: flex-start;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .capture_section {
+  .capture_typography_container {
     padding: 40px 15px;
   }
 
-  .capture_title {
+  .capture_text_on_red,
+  .capture_text_on_dark,
+  .capture_text_on_image {
     font-size: 48px;
     line-height: 100%;
-  }
-
-  .capture_subtitle {
-    font-size: 12px;
-    margin-top: 30px;
-  }
-
-  .capture_description {
-    font-size: 12px;
   }
 }
 
