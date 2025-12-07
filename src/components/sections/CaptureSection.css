@@ -253,10 +253,24 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .capture_section {
+    background: #000;
+  }
+  
+  /* Force all text to #EBDAC2 on mobile/tablet, prevent red color changes */
   .capture_text_on_red,
   .capture_text_on_dark,
   .capture_text_on_image {
     font-size: 100px;
+    color: #EBDAC2 !important; /* Override red color, keep beige */
+  }
+
+  /* Force metadata text to #EBDAC2 on mobile/tablet */
+  .capture_metadata_container.capture_text_on_image .capture_metadata_top,
+  .capture_metadata_container.capture_text_on_image .capture_metadata_bottom,
+  .capture_metadata_container.capture_text_on_red .capture_metadata_top,
+  .capture_metadata_container.capture_text_on_red .capture_metadata_bottom {
+    color: #EBDAC2 !important; /* Override red color, keep beige */
   }
 
   .capture_metadata_container {
@@ -264,16 +278,85 @@
   }
 }
 
+/* Mobile/Tablet: Black Background Layer */
+.capture_mobile_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: 1;
+}
+
+/* Mobile Typography Wrapper */
+.capture_typography_wrapper_mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+}
+
+/* Mobile/Tablet Text Style - #EBDAC2 text on black background */
+.capture_text_mobile {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #EBDAC2; /* Light beige text on black background */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  /* Hide image and curtains on mobile/tablet */
+  .capture_image_container {
+    display: none;
+  }
+
+  .capture_curtain_left,
+  .capture_curtain_right {
+    display: none;
+  }
+
+  .capture_typography_container {
+    padding: 60px 20px;
+    z-index: 2;
+  }
+
+  /* Mobile/Tablet text adjustments */
+  .capture_text_mobile {
+    font-size: 42px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .capture_typography_container {
     padding: 60px 20px;
+    z-index: 2;
   }
 
+  /* Force all text to #EBDAC2 on mobile, prevent red color changes */
   .capture_text_on_red,
   .capture_text_on_dark,
   .capture_text_on_image {
     font-size: 64px;
     line-height: 100%;
+    color: #EBDAC2 !important; /* Override red color, keep beige */
+  }
+
+  /* Force metadata text to #EBDAC2 on mobile */
+  .capture_metadata_container.capture_text_on_image .capture_metadata_top,
+  .capture_metadata_container.capture_text_on_image .capture_metadata_bottom,
+  .capture_metadata_container.capture_text_on_red .capture_metadata_top,
+  .capture_metadata_container.capture_text_on_red .capture_metadata_bottom {
+    color: #EBDAC2 !important; /* Override red color, keep beige */
   }
 
   .capture_metadata_container {
@@ -282,6 +365,11 @@
     margin-top: 40px;
     align-items: flex-start;
   }
+
+  /* Mobile text adjustments */
+  .capture_text_mobile {
+    font-size: 38px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -289,11 +377,26 @@
     padding: 40px 15px;
   }
 
+  /* Force all text to #EBDAC2 on small mobile, prevent red color changes */
   .capture_text_on_red,
   .capture_text_on_dark,
   .capture_text_on_image {
     font-size: 48px;
     line-height: 100%;
+    color: #EBDAC2 !important; /* Override red color, keep beige */
+  }
+
+  /* Force metadata text to #EBDAC2 on small mobile */
+  .capture_metadata_container.capture_text_on_image .capture_metadata_top,
+  .capture_metadata_container.capture_text_on_image .capture_metadata_bottom,
+  .capture_metadata_container.capture_text_on_red .capture_metadata_top,
+  .capture_metadata_container.capture_text_on_red .capture_metadata_bottom {
+    color: #EBDAC2 !important; /* Override red color, keep beige */
+  }
+
+  /* Smaller mobile text */
+  .capture_text_mobile {
+    font-size: 36px;
   }
 }
 
