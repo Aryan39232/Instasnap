@@ -122,7 +122,7 @@
   letter-spacing: 0%;
   text-align: right;
   color: #F2E8D8;
-  margin: 0 0 20rem 0;
+  margin: 0 0 18rem 0;
   font-style: normal;
 }
 
@@ -227,6 +227,12 @@
   height: 24px;
 }
 
+.social_icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 /* Decorative Elements */
 .founders_decor {
   position: absolute;
@@ -270,15 +276,33 @@
 
 /* Responsive Design */
 @media screen and (max-width: 1200px) {
+  .founders_section {
+    padding: 120px 60px 120px;
+  }
+
   .founders_title {
     font-size: 56px;
     line-height: 80px;
+  }
+
+  .founder_image_card {
+    width: 250px;
+    height: 340px;
+  }
+
+  .founders_tagline {
+    margin-bottom: 15rem;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .founders_section {
-    padding: 120px 60px 120px;
+    padding: 100px 50px 100px;
+  }
+
+  .founders_content_grid {
+    gap: 3rem;
+    align-items: flex-start;
   }
 
   .founders_title {
@@ -292,36 +316,68 @@
 
   .founder_description {
     font-size: 14px;
+    max-width: 100%;
+  }
+
+  .founder_image_card {
+    width: 220px;
+    height: 300px;
+  }
+
+  .founders_tagline {
+    margin-bottom: 12rem;
+    font-size: 15px;
+  }
+
+  .star_founders_1 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sparkle_founders_1 {
+    width: 50px;
+    height: 50px;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .founders_section {
-    padding: 100px 20px 100px;
-  }
-
+@media screen and (max-width: 900px) {
   .founders_content_grid {
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .founders_images_column {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .founder_image_card {
+    width: 200px;
+    height: 270px;
   }
 
   .founders_info_column {
-    animation: founders_slide_in_left 1s ease-out 0.2s forwards;
+    width: 100%;
   }
 
   .founders_title {
-    font-size: 36px;
-    line-height: 56px;
     text-align: center;
   }
 
+  .founders_tagline {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
   .founder_name {
-    font-size: 32px;
     text-align: center;
   }
 
   .founder_description {
-    font-size: 14px;
     text-align: center;
     margin: 0 auto;
   }
@@ -335,18 +391,144 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .founders_section {
+    padding: 80px 30px 80px;
+  }
+
+  .founders_content_grid {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .founders_images_column {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .founder_image_card {
+    width: 180px;
+    height: 240px;
+    flex: 0 0 auto;
+  }
+
+  .founders_info_column {
+    width: 100%;
+    animation: founders_slide_in_left 1s ease-out 0.2s forwards;
+  }
+
+  .founders_title {
+    font-size: 36px;
+    line-height: 56px;
+    text-align: center;
+  }
+
+  .founders_tagline {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .founder_name {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .founder_description {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .founder_social_links {
+    justify-content: center;
+  }
+
+  .founder_arrow_section {
+    justify-content: center;
+  }
+
+  .about_text {
+    font-size: 14px;
+  }
+
+  .star_founders_1 {
+    width: 50px;
+    height: 50px;
+    top: 10%;
+    right: 5%;
+  }
+
+  .sparkle_founders_1 {
+    width: 40px;
+    height: 40px;
+    bottom: 15%;
+    left: 5%;
+  }
+}
+
 @media screen and (max-width: 480px) {
+  .founders_section {
+    padding: 60px 20px 60px;
+  }
+
+  .founders_content_grid {
+    gap: 40px;
+  }
+
+  .founders_images_column {
+    gap: 12px;
+  }
+
+  .founder_image_card {
+    width: 140px;
+    height: 190px;
+  }
+
   .founders_title {
     font-size: 28px;
     line-height: 44px;
   }
 
+  .founders_tagline {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 3rem;
+  }
+
   .founder_name {
     font-size: 24px;
+    margin-bottom: 15px;
   }
 
   .founder_description {
     font-size: 13px;
+    line-height: 18px;
+  }
+
+  .about_text {
+    font-size: 13px;
+  }
+
+  .social_link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .star_founders_1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sparkle_founders_1 {
+    width: 35px;
+    height: 35px;
   }
 }
 
