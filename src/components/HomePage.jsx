@@ -21,7 +21,7 @@ const HomePage = () => {
       <StripsSection />
       <CaptureSection />
       <TestimonialsSection />
-      <FoundersSection />
+      {/* <FoundersSection /> */}
       <FooterSection />
     </div>
   );

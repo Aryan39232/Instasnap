@@ -31,13 +31,13 @@ const FooterSection = () => {
               <h3 className="footer_column_title">Contact us</h3>
               <div className="footer_contact_info">
                 <a
-                  href="mailto:email@gmail.com"
+                  href="mailto:hello@instasnap.in"
                   className="footer_contact_link"
                 >
-                  email@gmail.com
+                  hello@instasnap.in
                 </a>
-                <a href="tel:+917667676668" className="footer_contact_link">
-                  +91 7667676668
+                <a href="tel:08062180170" className="footer_contact_link">
+                  0806-218-0170 
                 </a>
               </div>
             </div>
@@ -63,7 +63,7 @@ const FooterSection = () => {
                 />
                 <circle cx="12" cy="9" r="2.5" stroke="white" strokeWidth="2" />
               </svg>
-              <p className="location_text">Ameerpet Metro Station, Hyderabad</p>
+              <p className="location_text">1st Floor, Ameerpet Metro Station, Hyderabad</p>
             </div>
             <div className="footer_location_item">
               <svg
@@ -84,7 +84,7 @@ const FooterSection = () => {
                 <circle cx="12" cy="9" r="2.5" stroke="white" strokeWidth="2" />
               </svg>
               <p className="location_text">
-                Central Mall, Punjagutta, Hyderabad
+                1st Floor, Hyderabad Central Mall, Hyderabad
               </p>
             </div>
             <div className="footer_location_item">
@@ -106,7 +106,7 @@ const FooterSection = () => {
                 <circle cx="12" cy="9" r="2.5" stroke="white" strokeWidth="2" />
               </svg>
               <p className="location_text">
-                Next Galleria Mall, Punjagutta, Hyderabad
+                5th Floor, Next Galleria Mall, Punjagutta, Hyderabad
               </p>
             </div>
           </div>
